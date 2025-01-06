@@ -97,7 +97,6 @@ def logout():
 
 @app.route('/', methods={"GET", "POST"})
 def index():        
-
     if "user" in session:
         #might need to rerun after submitting new inquiry
         cursor = codestorage.find({"username" : session["user"]})
