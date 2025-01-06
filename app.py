@@ -122,8 +122,8 @@ def gen_pseudo():
                 files_data['files'] = fetch_filesdata(session["user"], request.form.get('repo'))
                 cur_user = session["user"]
                 cur_repo = files_data['repoName']
-                print(f'index: {request.form.get('index')}')
-                print(f'files length: {len(files_data['files'])}')
+                print(f"index: {request.form.get('index')}")
+                print(f"files length: {len(files_data['files'])}")
                 if files_data['files'][int(request.form.get('index')) - 1]['is_toggled'] == 'true':
                     files_data['files'][int(request.form.get('index')) - 1]['is_toggled'] = 'false'
                     codestorage.update_one({"username" : cur_user, "repo" : cur_repo}, {"$set" : {f"filedata.{int(request.form.get('index')) - 1}.{'is_toggled'}": 'false'}})
